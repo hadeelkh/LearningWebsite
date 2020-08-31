@@ -135,28 +135,24 @@
                         <i class="ni ni-planet text-blue"></i> {{ __('Tracks') }}
                     </a>
                 </li>
+                
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Tracks') }}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="/admin/courses">
                         <i class="ni ni-planet text-blue"></i> {{ __('Courses') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="/admin/videos">
                         <i class="ni ni-pin-3 text-orange"></i> {{ __('Videos') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="/admin/quizzes">
                         <i class="ni ni-pin-3 text-orange"></i> {{ __('Quizzes') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="/admin/questions">
                         <i class="ni ni-pin-3 text-orange"></i> {{ __('Questions') }}
                     </a>
                 </li>

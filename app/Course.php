@@ -9,6 +9,8 @@ class Course extends Model
     protected $fillable = [
     	'title',
     	'status',
+        'link',
+        'track_id',
     ];
 
     public function photo() {

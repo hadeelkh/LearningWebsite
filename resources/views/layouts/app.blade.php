@@ -32,6 +32,8 @@
         <!-- Argon CSS -->
         <link type="text/css" href="/assets/css/argon.min.css" rel="stylesheet">
 
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/admin_custom.css') }}">
+
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
