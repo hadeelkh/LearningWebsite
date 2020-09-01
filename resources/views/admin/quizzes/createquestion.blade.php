@@ -79,7 +79,7 @@
 
                                 <div class="form-group{{ $errors->has('quiz_id') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-quiz_id">{{ __('Quiz Title') }}</label>
-                                    <select name="quiz_id" required class="form-control">
+                                    <select name="quiz_id" required class="form-control" >
                                         
                                         <option value="{{ $quiz->id }}">{{ $quiz->name }}</option>
                                         
