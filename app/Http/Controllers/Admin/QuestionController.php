@@ -40,19 +40,15 @@ class QuestionController extends Controller
     }
 
     
-    public function update(Request $request, $id)
+    public function update(Request $request, Question $question)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    
+    public function destroy(Question $question)
     {
-        //
+        $question->delete();
+        return redirect('/admin/questions')->withStatus('Question Successfuly Deleted');
     }
 }
