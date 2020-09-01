@@ -43,9 +43,9 @@ class VideoController extends Controller
         $Video = Video::create($request->all());
 
         if($Video){
-            return redirect('/admin/videos')->withState('Video successfully created.');
+            return redirect('/admin/videos')->withStatus('Video successfully created.');
         } else{
-            return redirect('/admin/videos/create')->withState('something wrong happened, Try again.');
+            return redirect('/admin/videos/create')->withStatus('something wrong happened, Try again.');
         }
     }
 
@@ -77,9 +77,9 @@ class VideoController extends Controller
 
         $this->validate($request, $rules);
         if($video->update($request->all())){
-            return redirect('/admin/videos')->withState('Video successfully updated.');
+            return redirect('/admin/videos')->withStatus('Video successfully updated.');
         } else{
-            return redirect('/admin/videos'.$video->id.'/edit')->withState('something wrong happened, Try again.');
+            return redirect('/admin/videos'.$video->id.'/edit')->withStatus('something wrong happened, Try again.');
         }
         
     }

@@ -30,9 +30,9 @@ class CourseVideoController extends Controller
         $Video = Video::create($request->all());
 
         if($Video){
-            return redirect('/admin/courses/'.$course->id)->withState('Video successfully created.');
+            return redirect('/admin/courses/'.$course->id)->withStatus('Video successfully created.');
         } else{
-            return redirect('/admin/courses/'.$course->id.'/createvideo')->withState('something wrong happened, Try again.');
+            return redirect('/admin/courses/'.$course->id.'/createvideo')->withStatus('something wrong happened, Try again.');
         }
     }
 

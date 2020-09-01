@@ -47,6 +47,6 @@ class TrackCourseController extends Controller
 
             }
         }
-        return redirect('/admin/tracks/'.$track->id)->withState('Course successfully created');
+        return redirect('/admin/tracks/'.$track->id)->withStatus('Course successfully created');
     }
 }

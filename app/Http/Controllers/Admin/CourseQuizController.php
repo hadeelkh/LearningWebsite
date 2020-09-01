@@ -29,9 +29,9 @@ class CourseQuizController extends Controller
         $quiz = Quiz::create($request->all());
 
         if($quiz){
-            return redirect('/admin/courses/'.$course->id)->withState('Quiz Successfully Created.');
+            return redirect('/admin/courses/'.$course->id)->withStatus('Quiz Successfully Created.');
         } else{
-            return redirect('/admin/courses/'.$course->id.'/createquiz')->withState('Something Wrong Happened, Try Again.');
+            return redirect('/admin/courses/'.$course->id.'/createquiz')->withStatus('Something Wrong Happened, Try Again.');
         }
     }
 

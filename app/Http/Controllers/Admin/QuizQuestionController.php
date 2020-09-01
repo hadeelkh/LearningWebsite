@@ -17,9 +17,25 @@ class QuizQuestionController extends Controller
     }
 
     
-    public function store(Request $request)
+    public function store(Request $request, Quiz $quiz)
     {
-        //
+        $rules=[
+            'title' => 'required|min:3|max:1000',
+            'answers' => 'required|min:3|max:1000',
+            'right_answer' => 'required|min:2|max:50',
+            'score' => 'required|integer|in:1,2,3,4,5,10,15,20,25,30',
+            'quiz_id' => 'required|integer',
+        ];
+
+        $this->validate($request, $rules);
+
+        $question = Question::create($request->all());
+
+        if($question){
+            return redirect('/admin/quizzes/'.$quiz->id)->withStatus('Question Successfully Created.');
+        } else{
+            return redirect('/admin/quizzes/'.$quiz->id.'/createquestion')->withStatus('Something Wrong Happened, Try Again.');
+        }
     }
 
     

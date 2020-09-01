@@ -55,7 +55,7 @@ class courseController extends Controller
 
             }
         }
-        return redirect('/admin/courses')->withState('Course successfully created');
+        return redirect('/admin/courses')->withStatus('Course successfully created');
 
     }
 
@@ -117,7 +117,7 @@ class courseController extends Controller
 
         }
         
-        return redirect('/admin/courses')->withState('Course successfully updated');  
+        return redirect('/admin/courses')->withStatus('Course successfully updated');  
     }
 
     

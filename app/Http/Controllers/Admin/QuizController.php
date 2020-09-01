@@ -34,9 +34,9 @@ class QuizController extends Controller
         $quiz = Quiz::create($request->all());
 
         if($quiz){
-            return redirect('/admin/quizzes')->withState('Quiz Successfully Created.');
+            return redirect('/admin/quizzes')->withStatus('Quiz Successfully Created.');
         } else{
-            return redirect('/admin/quizzes/create')->withState('Something Wrong Happened, Try Again.');
+            return redirect('/admin/quizzes/create')->withStatus('Something Wrong Happened, Try Again.');
         }
     }
 
@@ -67,9 +67,9 @@ class QuizController extends Controller
 
         $this->validate($request, $rules);
         if($quiz->update($request->all())){
-            return redirect('/admin/quizzes')->withState('Quiz Successfully Updated.');
+            return redirect('/admin/quizzes')->withStatus('Quiz Successfully Updated.');
         } else{
-            return redirect('/admin/quizzes'.$quiz->id.'/edit')->withState('Something Wrong Happened, Try Again.');
+            return redirect('/admin/quizzes'.$quiz->id.'/edit')->withStatus('Something Wrong Happened, Try Again.');
         }
     }
 

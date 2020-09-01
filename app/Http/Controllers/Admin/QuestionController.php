@@ -11,7 +11,7 @@ class QuestionController extends Controller
     
     public function index()
     {
-        $questions = Question::orderby('id', 'desc')->paginate(30);
+        $questions = Question::orderby('id', 'desc')->paginate(15);
         return view('admin.questions.index', compact('questions'));
     }
 
@@ -37,16 +37,10 @@ class QuestionController extends Controller
         $question = Question::create($request->all());
 
         if($question){
-            return redirect('/admin/questions')->withState('Question Successfully Created.');
+            return redirect('/admin/questions')->withStatus('Question Successfully Created.');
         } else{
-            return redirect('/admin/questions/create')->withState('Something Wrong Happened, Try Again.');
+            return redirect('/admin/questions/create')->withStatus('Something Wrong Happened, Try Again.');
         }
-    }
-
-    
-    public function show(Question $question)
-    {
-        return view('admin.questions.edit', compact('question'));
     }
 
    
@@ -58,7 +52,21 @@ class QuestionController extends Controller
     
     public function update(Request $request, Question $question)
     {
-        //
+        $rules=[
+            'title' => 'required|min:3|max:1000',
+            'answers' => 'required|min:3|max:1000',
+            'right_answer' => 'required|min:2|max:50',
+            'score' => 'required|integer|in:1,2,3,4,5,10,15,20,25,30',
+            'quiz_id' => 'required|integer',
+        ];
+
+        $this->validate($request, $rules);
+
+        if($question->update($request->all())){
+            return redirect('/admin/questions')->withStatus('Question Successfully Created.');
+        } else{
+            return redirect('/admin/questions'.$question->id.'/edit')->withStatus('Something Wrong Happened, Try Again.');
+        }
     }
 
     
